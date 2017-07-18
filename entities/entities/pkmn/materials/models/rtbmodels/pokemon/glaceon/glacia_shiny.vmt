@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture"	"models\RTBModels\Pokemon\Glaceon\Glacia_Shiny"
+	"$halflambert"	"1"
+}
