@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture"	"models\RTBModels\Pokemon\Vaporeon\Showers"
+	"$halflambert"	"1"
+}

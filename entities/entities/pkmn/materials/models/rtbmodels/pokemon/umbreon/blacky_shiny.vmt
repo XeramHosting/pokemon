@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture"	"models\RTBModels\Pokemon\Umbreon\Blacky_Shiny"
+	"$halflambert"	"1"
+}
