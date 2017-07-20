@@ -2857,36 +2857,146 @@ local function MyMenu()
 	end
 
 
-	concommand.Add("newhud3", function()
-		surface.CreateFont( "TheDefaultSettings", {
-		font = "Arial", -- Use the font-name which is shown to you by your operating system Font Viewer, not the file name
-		extended = false,
-		size = 30,
-		weight = 500,
-		blursize = 0,
-		scanlines = 0,
-		antialias = true,
-		underline = false,
-		italic = false,
-		strikeout = false,
-		symbol = false,
-		rotary = false,
-		shadow = false,
-		additive = false,
-		outline = false,
-	} )
-	hook.Add( "HUDPaint", "HUDPaint_DrawABox", function()
-		draw.SimpleText(readmone, "TheDefaultSettings", ScrW() - 150, ScrH() - 50, Color(0, 0, 0, 255))
-		local alert_img = Material("download/materials/spawnicons/models/alfredo01/7P9csm0.png") -- use a local variable designated somewhere else above in the same file
+concommand.Add("newhud3",function()
+surface.CreateFont( "TheDefaultSettings", {
+	font = "Arial", -- Use the font-name which is shown to you by your operating system Font Viewer, not the file name
+	extended = false,
+	size = 30,
+	weight = 500,
+	blursize = 0,
+	scanlines = 0,
+	antialias = true,
+	underline = false,
+	italic = false,
+	strikeout = false,
+	symbol = false,
+	rotary = false,
+	shadow = false,
+	additive = false,
+	outline = false,
+} )
 
-		surface.SetDrawColor(0, 0, 0)
-		surface.SetMaterial( alert_img )
-		surface.DrawTexturedRect(ScrW() - 200, ScrH() - 50, 32, 32)
+triangle = {
+	
+	{ x = ScrW(), y = 225 },
+	{ x = ScrW(), y = 280 },
+	{ x = ScrW() - 60, y = 280 },
+	{ x = ScrW() - 70, y = 270 },
+	{ x = ScrW() - 70, y = 235 },
+	{ x = ScrW() - 60, y = 225 },
+	
 
+}
 
+triangle2 = {
+	
+	{ x = ScrW(), y = 220 },
+	{ x = ScrW(), y = 285 },
+	{ x = ScrW() - 65, y = 285 },
+	{ x = ScrW() - 75, y = 275 },
+	{ x = ScrW() - 75, y = 230 },
+	{ x = ScrW() - 65, y = 220 },
+	
 
+}
 
-	end)
+triangle3 = {
+	
+	{ x = ScrW(), y = 325 - 35 },
+	{ x = ScrW(), y = 380 - 35 },
+	{ x = ScrW() - 60, y = 380 - 35 },
+	{ x = ScrW() - 70, y = 370 - 35 },
+	{ x = ScrW() - 70, y = 335 - 35 },
+	{ x = ScrW() - 60, y = 325 - 35 },
+	
+
+}
+
+triangle4 = {
+	
+	{ x = ScrW(), y = 320 - 35 },
+	{ x = ScrW(), y = 385 - 35 },
+	{ x = ScrW() - 65, y = 385 - 35 },
+	{ x = ScrW() - 75, y = 375 - 35 },
+	{ x = ScrW() - 75, y = 330 - 35 },
+	{ x = ScrW() - 65, y = 320 - 35 },
+	
+
+}
+
+triangle5 = {
+	
+	{ x = ScrW(), y = 425 - 70 },
+	{ x = ScrW(), y = 480 - 70 },
+	{ x = ScrW() - 60, y = 480 - 70 },
+	{ x = ScrW() - 70, y = 470 - 70 },
+	{ x = ScrW() - 70, y = 435 - 70 },
+	{ x = ScrW() - 60, y = 425 - 70 },
+	
+
+}
+
+triangle6 = {
+	
+	{ x = ScrW(), y = 420 - 70},
+	{ x = ScrW(), y = 485 - 70 },
+	{ x = ScrW() - 65, y = 485 - 70 },
+	{ x = ScrW() - 75, y = 475 - 70 },
+	{ x = ScrW() - 75, y = 430 - 70 },
+	{ x = ScrW() - 65, y = 420 - 70 },
+	
+
+}
+
+ourMat = Material( "materials/vgui/logos/ui/pokeball.png" )
+ourMat2 = Material( "materials/vgui/logos/ui/meds.png" )
+ourMat3 = Material( "materials/vgui/logos/ui/item.png" )
+
+hook.Add( "HUDPaint", "HUDPaint_DrawABox", function()
+ draw.SimpleText(readmone, "TheDefaultSettings", ScrW() - 150 , ScrH() - 50, Color(0,0,0,255))
+local alert_img = Material("download/materials/spawnicons/models/alfredo01/7P9csm0.png") -- use a local variable designated somewhere else above in the same file
+
+surface.SetDrawColor(0,0,0)
+surface.SetMaterial( alert_img ) 
+surface.DrawTexturedRect(ScrW() - 200 , ScrH() - 50,32,32)
+
+surface.SetDrawColor( 50,50,50, 230 )
+	draw.NoTexture()
+	surface.DrawPoly( triangle2 )
+
+surface.SetDrawColor( 128,128,128, 230 )
+	draw.NoTexture()
+	surface.DrawPoly( triangle )
+	
+		surface.SetDrawColor( 144, 144, 144, 255 )
+	surface.SetMaterial( ourMat	) -- If you use Material, cache it!
+	surface.DrawTexturedRect( ScrW() - 55, 228, 50, 50 )
+	
+	surface.SetDrawColor( 50 ,50,50, 230 )
+	draw.NoTexture()
+	surface.DrawPoly( triangle4 )
+
+surface.SetDrawColor( 128,128,128, 230 )
+	draw.NoTexture()
+	surface.DrawPoly( triangle3 )
+	
+	surface.SetDrawColor( 144, 144, 144, 255 )
+	surface.SetMaterial( ourMat2	) -- If you use Material, cache it!
+	surface.DrawTexturedRect( ScrW() - 55, 328 - 35, 50, 50 )
+	
+	surface.SetDrawColor( 50 ,50,50, 230 )
+	draw.NoTexture()
+	surface.DrawPoly( triangle6 )
+
+surface.SetDrawColor( 128,128,128, 230 )
+	draw.NoTexture()
+	surface.DrawPoly( triangle5 )
+	
+	surface.SetDrawColor( 228,228,228, 255 )
+	surface.SetMaterial( ourMat3	) -- If you use Material, cache it!
+	surface.DrawTexturedRect( ScrW() - 55, 428 - 70, 50, 50 )
+	
+end)
 end)
 
 concommand.Add("sendtheage", function()
@@ -3135,5 +3245,297 @@ end
 timer.Create("qtr", 5, 1, function()
 questtimer2 = 1
 end)
+end
+end)
+
+local hide = {
+	CHudWeaponSelection = true,
+}
+
+hook.Add( "HUDShouldDraw", "HideHUD", function( name )
+	if ( hide[ name ] ) then return false end
+
+end )
+
+
+local function inQuad( fraction, beginning, change )
+	return change * ( fraction ^ 2 ) + beginning
+end
+
+
+tri = {
+	
+	{ x = ScrW() + 100, y = 225 },
+	{ x = ScrW() + 100, y = 280 },
+	{ x = ScrW() - 60, y = 280 },
+	{ x = ScrW() - 70, y = 270 },
+	{ x = ScrW() - 70, y = 235 },
+	{ x = ScrW() - 60, y = 225 },
+	
+
+}
+
+tri2 = {
+	
+	{ x = ScrW() + 100, y = 220 },
+	{ x = ScrW() + 100, y = 285 },
+	{ x = ScrW() - 65, y = 285 },
+	{ x = ScrW() - 75, y = 275 },
+	{ x = ScrW() - 75, y = 230 },
+	{ x = ScrW() - 65, y = 220 },
+	
+
+}
+
+tri3 = {
+	
+	{ x = ScrW() + 100, y = 325 - 35 },
+	{ x = ScrW() + 100, y = 380 - 35 },
+	{ x = ScrW() - 60, y = 380 - 35 },
+	{ x = ScrW() - 70, y = 370 - 35 },
+	{ x = ScrW() - 70, y = 335 - 35 },
+	{ x = ScrW() - 60, y = 325 - 35 },
+	
+
+}
+
+tri4 = {
+	
+	{ x = ScrW() + 100, y = 320 - 35 },
+	{ x = ScrW() + 100, y = 385 - 35 },
+	{ x = ScrW() - 65, y = 385 - 35 },
+	{ x = ScrW() - 75, y = 375 - 35 },
+	{ x = ScrW() - 75, y = 330 - 35 },
+	{ x = ScrW() - 65, y = 320 - 35 },
+	
+
+}
+
+tri5 = {
+	
+	{ x = ScrW() + 100, y = 425 - 70 },
+	{ x = ScrW() + 100, y = 480 - 70 },
+	{ x = ScrW() - 60, y = 480 - 70 },
+	{ x = ScrW() - 70, y = 470 - 70 },
+	{ x = ScrW() - 70, y = 435 - 70 },
+	{ x = ScrW() - 60, y = 425 - 70 },
+	
+
+}
+
+tri6 = {
+	
+	{ x = ScrW() + 100, y = 420 - 70},
+	{ x = ScrW() + 100, y = 485 - 70 },
+	{ x = ScrW() - 65, y = 485 - 70 },
+	{ x = ScrW() - 75, y = 475 - 70 },
+	{ x = ScrW() - 75, y = 430 - 70 },
+	{ x = ScrW() - 65, y = 420 - 70 },
+	
+
+}
+
+hook.Add( "CreateMove", "Example:CreateMove", function( cmd )
+if cmd:GetMouseWheel( ) > 0 then
+	if not IsValid(panel) and not IsValid(panel2) and not IsValid(panel3) then
+	startWeaponSelection( KEY_1 )
+	end
+	if IsValid(panel) then
+		startWeaponSelection( KEY_3 )
+		end
+		
+	if IsValid(panel3) then
+		startWeaponSelection( KEY_2 )
+		end
+		if IsValid(panel2) then
+		startWeaponSelection( KEY_1 )
+		end
+		if IsValid(panel) then
+		startWeaponSelection( KEY_3 )
+		end
+	end
+	
+	if cmd:GetMouseWheel( ) < 0 then
+	if not IsValid(panel) and not IsValid(panel2) and not IsValid(panel3) then
+	startWeaponSelection( KEY_1 )
+	end
+	
+		if IsValid(panel) then
+		startWeaponSelection( KEY_2 )
+		end
+		
+		if IsValid(panel2) then
+		startWeaponSelection( KEY_3 )
+		end
+		
+		if IsValid(panel3) then
+		startWeaponSelection( KEY_1 )
+		end
+	end
+	if input.WasMousePressed(MOUSE_LEFT) then
+if IsValid(panel) then
+panel:Remove()
+end
+if IsValid(panel2) then
+panel2:Remove()
+end
+if IsValid(panel3) then
+panel3:Remove()
+end
+end
+end );
+
+selpan = 1
+concommand.Add("select1", function()
+if IsValid(panel3) then
+		panel3:Remove()
+		end
+		if IsValid(panel2) then
+		panel2:Remove()
+		end
+if selpan == 1 then
+selpan = 0
+panel = vgui.Create( "DPanel" )
+panel:SetSize( ScrW()+ 100, ScrH() )
+panel:SetPos( 0,0  )
+
+function panel:Paint( w, h )
+surface.SetDrawColor( 50,50,255, 230 )
+	draw.NoTexture()
+	surface.DrawPoly( tri2 )
+
+surface.SetDrawColor( 128,128,128, 230 )
+	draw.NoTexture()
+	surface.DrawPoly( tri )
+	
+		surface.SetDrawColor( 255, 255, 255, 255 )
+	surface.SetMaterial( ourMat	) -- If you use Material, cache it!
+	surface.DrawTexturedRect( ScrW() - 55, 228, 50, 50 )
+	
+	local weptbl = LocalPlayer():GetWeapons() -- get all the weapons the player has
+    for k, v in pairs( weptbl ) do -- loop through them
+       if v:GetModel() == "models/props_c17/FurnitureWashingmachine001a.mdl" then
+	surface.SetFont( "TheDefaultSettings" )
+	surface.SetTextColor( 255, 255, 255, 255 )
+	surface.SetTextPos( ScrW() - 5, 235)
+	surface.DrawText( "Pokeball" )	   -- check if the slot is the slot you wanted to check, if it is, return false
+	end
+	end
+	 
+end
+
+local anim = Derma_Anim( "EaseInQuad", panel, function( pnl, anim, delta, data )
+	pnl:SetPos( inQuad( delta, 0, -100 ), 0 ) -- Change the X coordinate from 200 to 200+600
+end )
+anim:Start( 1/4 ) -- Animate for two seconds
+panel.Think = function( self )
+	if anim:Active() then
+		anim:Run()
+		timer.Create("sometimer234124", 1/2,1, function()
+		selpan = 1
+		selpan2 = 1
+		selpan3 = 1
+		end)
+		
+	end
+end
+
+
+end
+end)
+
+selpan2 = 1
+concommand.Add("select2", function()
+if IsValid(panel) then
+		panel:Remove()
+		end
+		if IsValid(panel3) then
+		panel3:Remove()
+		end
+
+if selpan2 == 1 then
+selpan2 = 0
+panel2 = vgui.Create( "DPanel" )
+panel2:SetSize( ScrW()+ 100, ScrH() )
+panel2:SetPos( 0,0  )
+
+function panel2:Paint( w, h )
+surface.SetDrawColor( 50,50,255, 230 )
+	draw.NoTexture()
+	surface.DrawPoly( tri4 )
+
+surface.SetDrawColor( 128,128,128, 230 )
+	draw.NoTexture()
+	surface.DrawPoly( tri3 )
+	
+		surface.SetDrawColor( 255, 255, 255, 255 )
+	surface.SetMaterial( ourMat2	) -- If you use Material, cache it!
+	surface.DrawTexturedRect( ScrW() - 55, 328 - 35, 50, 50 )
+end
+
+local anim = Derma_Anim( "EaseInQuad", panel2, function( pnl, anim, delta, data )
+	pnl:SetPos( inQuad( delta, 0, -100 ), 0 ) -- Change the X coordinate from 200 to 200+600
+end )
+anim:Start( 1/4 ) -- Animate for two seconds
+panel2.Think = function( self )
+	if anim:Active() then
+		anim:Run()
+		timer.Create("sometimer2341245", 1/2,1, function()
+		selpan2 = 1
+		selpan = 1
+		selpan3 = 1
+		end)
+		
+	end
+end
+
+end
+end)
+
+selpan3 = 1
+concommand.Add("select3", function()
+if IsValid(panel) then
+		panel:Remove()
+		end
+		if IsValid(panel2) then
+		panel2:Remove()
+		end
+
+if selpan3 == 1 then
+selpan3 = 0
+panel3 = vgui.Create( "DPanel" )
+panel3:SetSize( ScrW()+ 100, ScrH() )
+panel3:SetPos( 0,0  )
+
+function panel3:Paint( w, h )
+surface.SetDrawColor( 50,50,255, 230 )
+	draw.NoTexture()
+	surface.DrawPoly( tri6 )
+
+surface.SetDrawColor( 128,128,128, 230 )
+	draw.NoTexture()
+	surface.DrawPoly( tri5 )
+	
+		surface.SetDrawColor( 255, 255, 255, 255 )
+	surface.SetMaterial( ourMat3	) -- If you use Material, cache it!
+	surface.DrawTexturedRect( ScrW() - 55, 428 - 70, 50, 50 )
+end
+
+local anim = Derma_Anim( "EaseInQuad", panel3, function( pnl, anim, delta, data )
+	pnl:SetPos( inQuad( delta, 0, -100 ), 0 ) -- Change the X coordinate from 200 to 200+600
+end )
+anim:Start( 1/4 ) -- Animate for two seconds
+panel3.Think = function( self )
+	if anim:Active() then
+		anim:Run()
+		timer.Create("sometimer23412456", 1/2,1, function()
+		selpan = 1
+		selpan2 = 1
+		selpan3 = 1
+
+		end)
+		
+	end
+end
 end
 end)
