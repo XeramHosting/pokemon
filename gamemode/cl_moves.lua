@@ -9,7 +9,15 @@ end)
 
 
 local function KeyPress(ply)
-
+if LocalPlayer():GetModel() == "models/player/red.mdl" then
+if input.IsKeyDown( KEY_1 ) then
+		startWeaponSelection( KEY_1 )
+	elseif input.IsKeyDown( KEY_2 ) then
+		startWeaponSelection( KEY_2 )
+	elseif input.IsKeyDown( KEY_3 ) then
+		startWeaponSelection( KEY_3 )
+	end
+end
   if input.IsKeyDown( KEY_1 ) and not k1 then
     if sql.TableExists( "playerpokemon" ) then
       RunConsoleCommand("sendtheage")
