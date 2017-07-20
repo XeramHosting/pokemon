@@ -2903,3 +2903,19 @@ h = h,
 end
 
 end)
+
+function startWeaponSelection( key )
+	if lastKey == key then return end
+	lastKey = key
+	
+	if key == KEY_1 then 
+	sound.Play( "firework/firered_0005.wav", LocalPlayer():GetPos())
+		RunConsoleCommand( "select1" )
+	elseif key == KEY_2 then
+	sound.Play( "firework/firered_0005.wav", LocalPlayer():GetPos())
+		RunConsoleCommand( "select2")
+	elseif key == KEY_3 then
+	sound.Play( "firework/firered_0005.wav", LocalPlayer():GetPos())
+		RunConsoleCommand( "select3" )
+	end
+end
