@@ -1,6 +1,0 @@
-"VertexLitGeneric"
-{
-	"$baseTexture"	"models\RTBModels\Pokemon\Arcanine\Windie"
-	"$halflambert"	"1"
-	"$nocull"		"1"
-}

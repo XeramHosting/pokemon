@@ -1,6 +1,0 @@
-"VertexLitGeneric"
-{
-	"$baseTexture"	"models\RTBModels\Pokemon\Flygon\Flygon"
-	"$halflambert"	"1"
-	"$translucent"	"1"
-}
